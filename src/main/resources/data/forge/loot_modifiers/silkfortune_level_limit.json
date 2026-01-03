@@ -1,0 +1,18 @@
+{
+  "type": "forge:loot_modifier",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/fishing/treasure"
+    },
+    {
+      "condition": "minecraft:enchantment_level",
+      "enchantment": "crazyenchant:silkfortune",
+      "levels": { "min": 6 }
+    }
+  ],
+  "modifier": {
+    "type": "forge:set_count",
+    "count": 0
+  }
+}

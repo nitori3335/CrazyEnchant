@@ -1,15 +1,15 @@
 package org.n_factory.crazyenchant.procedures;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.damagesource.*;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import org.n_factory.crazyenchant.init.*;
+import org.n_factory.crazyenchant.init.ModEnchantments;
 
 @Mod.EventBusSubscriber
 public class ExtraHitsOnAttackProcedure {

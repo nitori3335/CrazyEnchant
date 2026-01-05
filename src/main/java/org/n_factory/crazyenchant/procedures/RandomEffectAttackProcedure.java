@@ -7,9 +7,8 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import org.n_factory.crazyenchant.init.*;
-import org.n_factory.crazyenchant.helpers.*;
+import org.n_factory.crazyenchant.helpers.RandomPotionHelper;
+import org.n_factory.crazyenchant.init.ModEnchantments;
 
 @Mod.EventBusSubscriber
 public class RandomEffectAttackProcedure {

@@ -16,12 +16,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.n_factory.crazyenchant.init.*;
-import org.n_factory.crazyenchant.*;
+import org.n_factory.crazyenchant.CrazyEnchantConfig;
+import org.n_factory.crazyenchant.init.ModEnchantments;
 
 import java.util.List;
 

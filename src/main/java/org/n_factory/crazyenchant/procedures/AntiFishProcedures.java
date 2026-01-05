@@ -15,8 +15,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraftforge.event.entity.player.ItemFishedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import org.n_factory.crazyenchant.init.*;
+import org.n_factory.crazyenchant.init.ModEnchantments;
 
 import java.util.List;
 import java.util.Random;

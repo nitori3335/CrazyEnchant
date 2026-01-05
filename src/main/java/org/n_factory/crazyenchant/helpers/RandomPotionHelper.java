@@ -5,10 +5,9 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.n_factory.crazyenchant.CrazyEnchantConfig;
 
 import java.util.*;
-
-import  org.n_factory.crazyenchant.*;
 
 public class RandomPotionHelper {
 

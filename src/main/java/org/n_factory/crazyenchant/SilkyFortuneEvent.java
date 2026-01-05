@@ -9,9 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import org.n_factory.crazyenchant.init.*;
-import org.n_factory.crazyenchant.procedures.*;
+import org.n_factory.crazyenchant.procedures.SilkyFortuneProcedure;
 
 @Mod.EventBusSubscriber
 public class SilkyFortuneEvent {

@@ -1,21 +1,22 @@
 package org.n_factory.crazyenchant.procedures;
 
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.*;
-import net.minecraft.world.effect.*;
-import net.minecraft.world.entity.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.n_factory.crazyenchant.CrazyEnchantConfig;
+import org.n_factory.crazyenchant.Crazyenchant;
+import org.n_factory.crazyenchant.init.ModEnchantments;
 
 import java.util.*;
-
-import net.minecraftforge.fml.event.config.ModConfigEvent;
-import net.minecraftforge.registries.ForgeRegistries;
-import org.n_factory.crazyenchant.init.*;
-import org.n_factory.crazyenchant.*;
 
 @Mod.EventBusSubscriber(modid = Crazyenchant.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class RandomEffectStealAttackProcedure {

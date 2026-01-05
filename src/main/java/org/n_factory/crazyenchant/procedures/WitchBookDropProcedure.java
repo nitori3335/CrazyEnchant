@@ -3,13 +3,13 @@ package org.n_factory.crazyenchant.procedures;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Witch;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import org.n_factory.crazyenchant.init.*;
+import org.n_factory.crazyenchant.init.ModEnchantments;
 
 @Mod.EventBusSubscriber
 public class WitchBookDropProcedure {

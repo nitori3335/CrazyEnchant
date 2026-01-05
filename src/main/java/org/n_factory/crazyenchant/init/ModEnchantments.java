@@ -4,7 +4,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.n_factory.crazyenchant.*;
+import org.n_factory.crazyenchant.Crazyenchant;
 import org.n_factory.crazyenchant.enchantment.*;
 
 public class ModEnchantments {

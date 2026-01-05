@@ -25,8 +25,8 @@ public class RandomPotionHelper {
         int baseLevel = CrazyEnchantConfig.LEVEL.get();
         double probability = CrazyEnchantConfig.PROBABILITY.get();
 
-        List<String> whitelist = (List<String>) CrazyEnchantConfig.WHITELIST_EFFECTS.get();
-        List<String> blacklist = (List<String>) CrazyEnchantConfig.BLACKLIST_EFFECTS.get();
+        List<String> whitelist = CrazyEnchantConfig.WHITELIST_EFFECTS.get();
+        List<String> blacklist = CrazyEnchantConfig.BLACKLIST_EFFECTS.get();
 
         int amplifier = Math.max(0, baseLevel - 1);
 

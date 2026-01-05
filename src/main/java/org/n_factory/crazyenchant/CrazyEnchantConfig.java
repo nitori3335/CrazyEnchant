@@ -52,7 +52,6 @@ public class CrazyEnchantConfig {
 
         BUILDER.pop();
 
-        SPEC = BUILDER.build();
     }
 
     // Config項目（変更なし）
@@ -83,7 +82,6 @@ public class CrazyEnchantConfig {
 
         BUILDER.pop();
 
-        SPEC = BUILDER.build();
     }
 
     // Configロード完了時にキャッシュ初期化（これでエラー回避）
@@ -164,7 +162,7 @@ public class CrazyEnchantConfig {
         if (event.getConfig().getSpec() == SPEC) {
             silkyFortuneWhitelistTagCache = SILKYFORTUNE_WHITELIST_TAG.get();
             silkyFortuneBlacklistTagCache = SILKYFORTUNE_BLACKLIST_TAG.get();
-            silkyFortuneWhitelistBlocksCache = new ArrayList<>((List<String>) SILKYFORTUNE_WHITELIST_BLOCKS.get());
+            silkyFortuneWhitelistBlocksCache = new ArrayList<>(SILKYFORTUNE_WHITELIST_BLOCKS.get());
             silkyFortuneKeepNbtCache = SILKYFORTUNE_KEEP_NBT.get();
 
             Crazyenchant.LOGGER.info("SilkyFortune Config updated");

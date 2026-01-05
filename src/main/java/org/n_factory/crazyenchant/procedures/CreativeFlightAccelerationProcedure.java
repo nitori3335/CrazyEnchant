@@ -26,7 +26,7 @@ public class CreativeFlightAccelerationProcedure {
         if (!player.getAbilities().flying) return;
 
         ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
-        int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SWIFTFLIGHT.get(), chest);
+        int level = EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.SWIFTFLIGHT.get(), chest);
 
         float targetSpeed;
         if (level > 0) {
@@ -44,7 +44,7 @@ public class CreativeFlightAccelerationProcedure {
             if (Math.abs(current - targetSpeed) > 0.0001f) {
                 flyingSpeedField.setFloat(player.getAbilities(), targetSpeed);
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 }

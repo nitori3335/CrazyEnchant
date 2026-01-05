@@ -24,7 +24,7 @@ public class RandomEffectAttackProcedure {
         if (!(source instanceof LivingEntity attacker)) return;
 
         ItemStack weapon = attacker.getMainHandItem();
-        int level = EnchantmentHelper.getItemEnchantmentLevel(
+        int level = EnchantmentHelper.getTagEnchantmentLevel(
                 ModEnchantments.RANDOM_EFFECT.get(),
                 weapon
         );

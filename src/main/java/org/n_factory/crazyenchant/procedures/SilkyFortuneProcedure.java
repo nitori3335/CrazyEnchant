@@ -51,12 +51,7 @@ public class SilkyFortuneProcedure {
         TagKey<Block> blacklistTag = useBlacklistTag ? TagKey.create(Registries.BLOCK, new ResourceLocation(blacklistTagId)) : null;
 
         // ホワイトリスト判定（リストが最優先）
-        boolean isWhitelisted = false;
-
-        // 1. ホワイトリストブロックチェック（最優先）
-        if (useWhitelistBlocks && whitelistBlocks.contains(idStr)) {
-            isWhitelisted = true;
-        }
+        boolean isWhitelisted = useWhitelistBlocks && whitelistBlocks.contains(idStr);
 
         // 2. ブラックリストチェック（リストで上書きされなかった場合のみ除外）
         boolean isBlacklisted = false;
@@ -119,7 +114,7 @@ public class SilkyFortuneProcedure {
                 // 1. クローンアイテムを取得（バニラ標準）
                 BlockHitResult hitResult = new BlockHitResult(Vec3.atCenterOf(pos), Direction.UP, pos, false);
                 Player player = null;
-                ItemStack stack = state.getCloneItemStack(hitResult, serverLevel, pos, player);
+                state.getCloneItemStack(hitResult, serverLevel, pos, player);
 
                 // 2. NBT取得（全データ）
                 CompoundTag tag = be.saveWithFullMetadata();

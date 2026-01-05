@@ -67,8 +67,6 @@ public class AntiFishProcedures {
                 if (s.is(ItemTags.FISHES)) {
                     if (rand.nextDouble() < fishChance) {
                         return s;
-                    } else {
-                        continue;
                     }
                 } else {
                     return s;

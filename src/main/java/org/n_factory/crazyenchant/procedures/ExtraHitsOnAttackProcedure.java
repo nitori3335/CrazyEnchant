@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.jetbrains.annotations.NotNull;
 import org.n_factory.crazyenchant.init.ModEnchantments;
 
 @Mod.EventBusSubscriber
@@ -53,7 +54,7 @@ public class ExtraHitsOnAttackProcedure {
         }
 
         @Override
-        public String getMsgId() {
+        public @NotNull String getMsgId() {
             return EXTRA_HIT_MSG_ID;  // ← ここで固定！ 他のクラスからも参照可能
         }
     }

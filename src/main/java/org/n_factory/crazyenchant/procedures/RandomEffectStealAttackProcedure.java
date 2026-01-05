@@ -33,8 +33,8 @@ public class RandomEffectStealAttackProcedure {
         LivingEntity victim = event.getEntity();
 
         ItemStack weapon = attacker.getMainHandItem();
-        int level = EnchantmentHelper.getItemEnchantmentLevel(
-               ModEnchantments.STEALEFFECT.get(), weapon);
+        int level = EnchantmentHelper.getTagEnchantmentLevel(
+                ModEnchantments.STEALEFFECT.get(), weapon);
 
         if (level <= 0) return;
 
@@ -65,7 +65,7 @@ public class RandomEffectStealAttackProcedure {
         for (int i = 0; i < stealCount && !effects.isEmpty(); ) {
             MobEffectInstance original = effects.get(i);
             MobEffect effect = original.getEffect();
-            String idStr = ForgeRegistries.MOB_EFFECTS.getKey(effect).toString();
+            String idStr = Objects.requireNonNull(ForgeRegistries.MOB_EFFECTS.getKey(effect)).toString();
 
             // ブラックリスト
             if (blacklist.contains(idStr)) {

@@ -1,8 +1,10 @@
 package org.n_factory.crazyenchant;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -11,8 +13,14 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.n_factory.crazyenchant.init.ModBlocks;
 import org.n_factory.crazyenchant.init.ModEnchantments;
+import org.n_factory.crazyenchant.init.ModEntities;
+import org.n_factory.crazyenchant.ritual.Ritualkey;
 import org.slf4j.Logger;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Mod(Crazyenchant.MODID)
 public class Crazyenchant {
@@ -20,20 +28,19 @@ public class Crazyenchant {
     public static final String MODID = "crazyenchant";
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static final Map<Ritualkey.RitualKey, Boolean> ACTIVE_RITUALS = new ConcurrentHashMap<>();
+
     // DeferredRegister（エンチャント登録だけ残す）
     public Crazyenchant() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // エンチャント登録（ModEnchantmentsから）
+        // 各種登録（initから）
         ModEnchantments.ENCHANTMENT.register(modEventBus);
-
-        // イベント登録（必要に応じて）
-        MinecraftForge.EVENT_BUS.register(this);
+        ModEntities.ENTITIES.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
 
         // Config登録（Configuration版に置き換え済みならここ）
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CrazyEnchantConfig.SPEC, "crazyenchant.toml");
-
-        // 他のDeferredRegisterがあればここに追加（ブロック/アイテムなしなら不要）
     }
 
     // 他のイベント（例: サーバー開始時ログなど）は任意で残す/削除

@@ -106,13 +106,25 @@ public class SummoningEventHandler {
         }
         BlockPos beaconPos = matched.pos();
 
-        // 壁消去
+        // 壁消去（既存）
         clearArenaBarrier(level, beaconPos);
 
-        // 保護解除
+        // 保護解除（既存）
         Crazyenchant.ACTIVE_RITUALS.remove(matched);
 
+        // ★ 新規追加：周辺のSummoningGateをすべて削除
+        AABB searchBox = new AABB(beaconPos).inflate(ARENA_RADIUS + 10);  // 少し広めに検索
+        for (SummoningGate gate : level.getEntitiesOfClass(SummoningGate.class, searchBox)) {
+            if (gate.isAlive()) {
+                gate.discard();  // 即削除
+            }
+        }
+
+        // 演出（音・メッセージ）
         level.playSound(null, beaconPos, SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 3.0F, 0.8F);
+        level.players().forEach(p -> p.sendSystemMessage(
+                Component.literal("§aボス撃破！儀式終了、ゲートも消滅しました").withStyle(ChatFormatting.GREEN)
+        ));
     }
 
     // 壁消去メソッド（ServerLevel と中心座標）
@@ -151,10 +163,16 @@ public class SummoningEventHandler {
         double distSq = brokenPos.distSqr(floorCenter);
 
         if (distSq > ARENA_RADIUS * ARENA_RADIUS) return;
-        if (brokenPos.getY() != floorY) return;
+        boolean isFloor = (brokenPos.getY() == floorY) && (distSq <= ARENA_RADIUS * ARENA_RADIUS);
+// ビーコン本体チェック（Y一致 + 同一位置）
+        boolean isBeacon = brokenPos.equals(beaconCenter);
 
-        event.setCanceled(true);
-        event.getPlayer().sendSystemMessage(Component.literal("§cアリーナの床は破壊できません！").withStyle(ChatFormatting.RED));
+        if (isFloor || isBeacon) {
+            event.setCanceled(true);
+            event.getPlayer().sendSystemMessage(
+                    Component.literal("§c儀式の床またはビーコンは破壊できません！").withStyle(ChatFormatting.RED)
+            );
+        }
     }
 
     // 爆発保護 — 近い儀式（同一次元）を探して保護対象を作る
@@ -179,6 +197,9 @@ public class SummoningEventHandler {
                 protect.add(beaconCenter.offset(x, -1, z));
             }
         }
+
+        protect.add(beaconCenter);
+
         event.getAffectedBlocks().removeIf(protect::contains);
     }
 

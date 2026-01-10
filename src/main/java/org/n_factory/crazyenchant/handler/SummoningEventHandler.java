@@ -8,22 +8,27 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.n_factory.crazyenchant.Crazyenchant;
+import org.n_factory.crazyenchant.config.MinionConfig;
 import org.n_factory.crazyenchant.init.ModBlocks;
 import org.n_factory.crazyenchant.ritual.Ritualkey;
 import org.n_factory.crazyenchant.ritual.SummoningGate;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -49,7 +54,7 @@ public class SummoningEventHandler {
 
                 BlockPos beaconPos = key.pos();
 
-                // 1. ミニオン湧き(各ゲートから)
+                // ミニオン湧き(各ゲートから)
                 for (SummoningGate gate : level.getEntitiesOfClass(SummoningGate.class, new AABB(beaconPos).inflate(50))) {
                     if (!gate.isAlive()) continue;
 
@@ -57,10 +62,14 @@ public class SummoningEventHandler {
                     double offsetZ = level.random.nextGaussian() * 3;
                     double spawnY = gate.getY();
 
-                    Skeleton minion = EntityType.SKELETON.create(level);
+                    // ランダム選択（JSONから）
+                    EntityType<?> randomType = MinionConfig.getRandomMinion();
+                    Mob minion = (Mob) randomType.create(level);
                     if (minion != null) {
                         minion.moveTo(gate.getX() + offsetX, spawnY, gate.getZ() + offsetZ);
                         minion.addTag("enchantor_minion");
+                        minion.setPersistenceRequired();
+                        minion.getPersistentData().putString("DeathLootTable", "minecraft:empty");  // ドロップなし
                         level.addFreshEntity(minion);
                     }
                 }
@@ -164,7 +173,7 @@ public class SummoningEventHandler {
 
         if (distSq > ARENA_RADIUS * ARENA_RADIUS) return;
         boolean isFloor = (brokenPos.getY() == floorY) && (distSq <= ARENA_RADIUS * ARENA_RADIUS);
-// ビーコン本体チェック（Y一致 + 同一位置）
+        // ビーコン本体チェック（Y一致 + 同一位置）
         boolean isBeacon = brokenPos.equals(beaconCenter);
 
         if (isFloor || isBeacon) {
@@ -221,5 +230,19 @@ public class SummoningEventHandler {
             }
         }
         return bestKey;
+    }
+
+    @SubscribeEvent
+    public static void onMinionDeath(LivingDropsEvent event) {
+        if (event.getEntity().level().isClientSide) return;
+
+        LivingEntity entity = event.getEntity();
+        if (!entity.getTags().contains("enchantor_minion")) return;
+
+        // 安全にドロップリストをクリア（nullチェック）
+        Collection<ItemEntity> drops = event.getDrops();
+        if (drops != null) {
+            drops.clear();
+        }
     }
 }

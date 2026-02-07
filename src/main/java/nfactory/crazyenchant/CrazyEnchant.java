@@ -9,7 +9,7 @@ import nfactory.crazyenchant.init.CERegistries;
 import nfactory.crazyenchant.init.ModEnchantments;
 import org.slf4j.Logger;
 
-
+@SuppressWarnings("removal")
 @Mod(CrazyEnchant.MODID)
 public class CrazyEnchant {
     public static final String MODID = "crazyenchant";

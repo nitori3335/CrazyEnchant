@@ -66,35 +66,6 @@ public class SilkyFortuneContext {
         boolean isWhitelisted = useWhitelistBlocks && whitelistBlocksCache.contains(id);
         boolean isBlacklisted = false;
 
-        if (useWhitelistTag) {
-            var tag = level.registryAccess()
-                    .registryOrThrow(Registries.BLOCK)
-                    .getTagOrEmpty(WHITELIST_TAG);
-
-            int count = 0;
-            for (var holder : tag) {
-                count++;
-                CrazyEnchant.LOGGER.info("[Silky] whitelist tag entry = {}",
-                        ForgeRegistries.BLOCKS.getKey(holder.value()));
-            }
-
-            CrazyEnchant.LOGGER.info("[Silky] whitelist tag count = {}", count);
-        }
-
-        if (useBlacklistTag) {
-            var tag = level.registryAccess()
-                    .registryOrThrow(Registries.BLOCK)
-                    .getTagOrEmpty(BLACKLIST_TAG);
-
-            int count = 0;
-            for (var holder : tag) {
-                count++;
-                CrazyEnchant.LOGGER.info("[Silky] blacklist tag entry = {}",
-                        ForgeRegistries.BLOCKS.getKey(holder.value()));
-            }
-
-            CrazyEnchant.LOGGER.info("[Silky] blacklist tag count = {}", count);
-        }
 
         if (!isWhitelisted && useBlacklistTag) {
             var tag = level.registryAccess().registryOrThrow(Registries.BLOCK).getTagOrEmpty(BLACKLIST_TAG);

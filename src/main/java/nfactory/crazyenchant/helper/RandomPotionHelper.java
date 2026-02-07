@@ -9,6 +9,7 @@ import nfactory.crazyenchant.config.CrazyEnchantConfig;
 
 import java.util.*;
 
+@SuppressWarnings("removal")
 public class RandomPotionHelper {
 
     private static final Random RANDOM = new Random();

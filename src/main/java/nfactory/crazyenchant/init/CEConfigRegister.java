@@ -4,7 +4,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import nfactory.crazyenchant.config.CrazyEnchantConfig;
 
-public class CEConfig {
+public class CEConfigRegister {
 
     @SuppressWarnings("removal")
     public static void register() {

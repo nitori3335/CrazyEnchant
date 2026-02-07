@@ -18,6 +18,8 @@ public abstract class EntryBaseMixin {
 
     @Inject(method = "getWeight", at = @At("RETURN"), cancellable = true)
     private void adjustWeight(float luck, CallbackInfoReturnable<Integer> cir) {
+        if (LootContextHelper.getEnchantLevel() <= 0) return;
+
         int base = cir.getReturnValue();
 
         try {

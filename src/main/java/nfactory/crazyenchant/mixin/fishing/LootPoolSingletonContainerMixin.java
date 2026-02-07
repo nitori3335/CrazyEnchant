@@ -1,5 +1,6 @@
 package nfactory.crazyenchant.mixin.fishing;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -37,6 +38,12 @@ public abstract class LootPoolSingletonContainerMixin implements IHateContainer 
     @Inject(method = "expand", at = @At("HEAD"))
     private void captureEnchantmentLevel(LootContext lootContext, Consumer<LootPoolEntry> consumer, CallbackInfoReturnable<Boolean> cir) {
         try {
+            ResourceLocation tableId = lootContext.getQueriedLootTableId();
+            if (!tableId.getPath().startsWith("gameplay/fishing")) {
+                LootContextHelper.setEnchantLevel(0);
+                return;
+            }
+
             // TOOL (釣竿) から直接エンチャントレベルを取得
             ItemStack tool = lootContext.getParamOrNull(LootContextParams.TOOL);
             if (tool != null) {

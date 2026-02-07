@@ -6,6 +6,7 @@ import nfactory.crazyenchant.config.CrazyEnchantConfig;
 
 public class CEConfig {
 
+    @SuppressWarnings("removal")
     public static void register() {
         ModLoadingContext.get().registerConfig(
                 ModConfig.Type.COMMON,

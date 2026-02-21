@@ -1,0 +1,59 @@
+{
+  "enchantment.crazyenchant.fish_hater"    : "FishHater",
+  "enchantment.crazyenchant.multihits"     : "MultiHits",
+  "enchantment.crazyenchant.random_effect" : "RandomEffect",
+  "enchantment.crazyenchant.silkfortune"   : "SilkFortune",
+  "enchantment.crazyenchant.steal_effect"  : "StealEffect",
+  "enchantment.crazyenchant.swift_flight"  : "SwiftFlight",
+  "enchantment.crazyenchant.witch_hunter"  : "WitchHunter",
+
+
+
+  "tooltip.crazyenchant.fish_hater": "- Makes fish harder to catch and junk more common.",
+  "tooltip.crazyenchant.multihits": "- Attacks can strike multiple times.",
+  "tooltip.crazyenchant.random_effect": "- Grants a random potion effect on hit.",
+  "tooltip.crazyenchant.silkfortune": "- Combines Silk Touch and Fortune.",
+  "tooltip.crazyenchant.steal_effect": "- Steals potion effects from enemies.",
+  "tooltip.crazyenchant.swift_flight": "- Increases creative flight speed.",
+  "tooltip.crazyenchant.witch_hunter": "- Witch drop enchanted books when killed.",
+
+
+
+  "jei.crazyenchant.fish_hater.line1": "Reduces the chance of catching fish.",
+  "jei.crazyenchant.fish_hater.line2": "Applies while fishing with a rod.",
+  "jei.crazyenchant.fish_hater.line3": "Fish become rarer and junk more common.",
+  "jei.crazyenchant.fish_hater.line4": "Luck of the Sea effects are inverted.",
+
+  "jei.crazyenchant.multihits.line1": "Allow attacks to hit multiple times.",
+  "jei.crazyenchant.multihits.line2": "Triggers on successful melee hit.",
+  "jei.crazyenchant.multihits.line3": "Deals additional repeated damage.",
+  "jei.crazyenchant.multihits.line4": "Extra hits scale with level.",
+
+  "jei.crazyenchant.random_effect.line1": "Grants a random potion effect.",
+  "jei.crazyenchant.random_effect.line2": "Triggers when hitting an entity.",
+  "jei.crazyenchant.random_effect.line3": "Applies a random effect to the target.",
+  "jei.crazyenchant.random_effect.line4": "Effect duration is fixed.",
+  "jei.crazyenchant.random_effect.config": "Configurable.",
+
+  "jei.crazyenchant.silkfortune.line1": "Combines Silk Touch and Fortune.",
+  "jei.crazyenchant.silkfortune.line2": "Applies when breaking blocks.",
+  "jei.crazyenchant.silkfortune.line3": "Drops silk-touch results with bonus yield.",
+  "jei.crazyenchant.silkfortune.line4": "May conflict with certain loot tables.",
+  "jei.crazyenchant.silkfortune.config": "Configurable.",
+
+  "jei.crazyenchant.steal_effect.line1": "Steals potion effects from enemies.",
+  "jei.crazyenchant.steal_effect.line2": "Triggers on melee hit.",
+  "jei.crazyenchant.steal_effect.line3": "Transfers active effects to the attacker.",
+  "jei.crazyenchant.steal_effect.line4": "Only steals valid transferable effects.",
+  "jei.crazyenchant.steal_effect.config": "Configurable.",
+
+  "jei.crazyenchant.swift_flight.line1": "Increases flight speed.",
+  "jei.crazyenchant.swift_flight.line2": "Applies while the user is flying.",
+  "jei.crazyenchant.swift_flight.line3": "Requires creative-style flight ability.",
+  "jei.crazyenchant.swift_flight.line4": "Boosts movement speed in all directions.",
+
+  "jei.crazyenchant.witch_hunter.line1": "Causes Witches to drop enchanted books.",
+  "jei.crazyenchant.witch_hunter.line2": "Triggers when killing a Witch.",
+  "jei.crazyenchant.witch_hunter.line3": "Drops a random enchanted book.",
+  "jei.crazyenchant.witch_hunter.line4": "Enchantments can reach up to level 10."
+}

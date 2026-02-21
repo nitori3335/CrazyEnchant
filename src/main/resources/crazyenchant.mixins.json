@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "nfactory.crazyenchant.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "crazyenchant.refmap.json",
+  "mixins": [
+    "fishing.DynamicLootMixin",
+    "fishing.EntryBaseMixin",
+    "fishing.LootItemMixin",
+    "fishing.LootPoolEntryContainerMixin",
+    "fishing.LootPoolSingletonContainerMixin",
+    "fishing.LootPoolSingletonContainerSerializerMixin",
+    "fishing.LootTableReferenceMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

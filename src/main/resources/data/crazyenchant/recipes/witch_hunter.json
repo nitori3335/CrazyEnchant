@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BCB",
+    "DED"
+  ],
+  "key": {
+    "A": {"item": "minecraft:writable_book"},
+    "B": {"item": "minecraft:end_rod"},
+    "C": {"item": "minecraft:enchanting_table"},
+    "D": {"item": "minecraft:crying_obsidian"},
+    "E": {"item": "minecraft:amethyst_block"}
+  },
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": "{StoredEnchantments:[{id:\"crazyenchant:witch_hunter\",lvl:1s}]}"
+  }
+}

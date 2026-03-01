@@ -1,20 +1,21 @@
 package nfactory.crazyenchant.procedure;
 
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import nfactory.crazyenchant.CrazyEnchant;
 import nfactory.crazyenchant.config.CrazyEnchantConfig;
 import nfactory.crazyenchant.data.dto.EffectFilterRule;
-import nfactory.crazyenchant.data.result.StealResult;
 import nfactory.crazyenchant.data.dto.StolenEffectData;
+import nfactory.crazyenchant.data.result.StealResult;
+import nfactory.crazyenchant.helper.DamageSourceHelper;
 import nfactory.crazyenchant.helper.StealEffectHelper;
 import nfactory.crazyenchant.init.ModEnchantments;
+import nfactory.crazyenchant.util.CombatUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,13 +24,11 @@ import java.util.List;
 public class RandomEffectStealAttackProcedure {
 
     @SubscribeEvent
-    public static void onLivingHurt(LivingHurtEvent event) {
-        if (event.getEntity().level().isClientSide()) return;
+    public static void onLivingDamage(LivingDamageEvent event) {
+        LivingEntity attacker = CombatUtil.getDirectMeleeAttacker(event.getSource(), event.getEntity().level());
+        if (attacker == null) return;
 
-        if ("extra_hit".equals(event.getSource().getMsgId())) return;
-
-        Entity source = event.getSource().getEntity();
-        if (!(source instanceof LivingEntity attacker)) return;
+        if (DamageSourceHelper.EXTRA_HIT_MSG_ID.equals(event.getSource().getMsgId())) return;
 
         LivingEntity victim = event.getEntity();
 

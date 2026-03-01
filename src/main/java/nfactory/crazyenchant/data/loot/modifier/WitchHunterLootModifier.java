@@ -17,6 +17,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import nfactory.crazyenchant.init.ModEnchantments;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class WitchHunterLootModifier extends LootModifier {
 
     public static final Codec<WitchHunterLootModifier> CODEC =
@@ -42,19 +44,30 @@ public class WitchHunterLootModifier extends LootModifier {
         int enchantCount = weapon.getEnchantmentLevel(ModEnchantments.WITCHHUNTER.get());
         if (enchantCount <= 0) return generatedLoot;
 
-        ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-
-        var allEnchantments = ForgeRegistries.ENCHANTMENTS.getValues().stream().toList();
-
-        for (int i = 0; i < enchantCount; i++) {
-            var addEnchantment = allEnchantments.get(context.getRandom().nextInt(allEnchantments.size()));
-            int maxAllowed = Math.min(addEnchantment.getMaxLevel(), 10);
-            int enchantLevel = 1 + context.getRandom().nextInt(maxAllowed);
-            book.enchant(addEnchantment, enchantLevel);
-        }
+        ItemStack book = createRandomEnchantBook(context, enchantCount);
 
         generatedLoot.add(book);
         return generatedLoot;
+    }
+
+    private static @NotNull ItemStack createRandomEnchantBook(LootContext context, int enchantCount) {
+        ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+
+        var allEnchantments = new ArrayList<>(ForgeRegistries.ENCHANTMENTS.getValues());
+        var random = context.getRandom();
+
+        int count = Math.min(enchantCount, allEnchantments.size());
+
+        for (int i = 0; i < count; i++) {
+            int index = random.nextInt(allEnchantments.size());
+            var enchant = allEnchantments.remove(index);
+
+            int maxAllowed = Math.min(enchant.getMaxLevel(), 10);
+            int level = 1 + random.nextInt(maxAllowed);
+
+            book.enchant(enchant, level);
+        }
+        return book;
     }
 
     @Override

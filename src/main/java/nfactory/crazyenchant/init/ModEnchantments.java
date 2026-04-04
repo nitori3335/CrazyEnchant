@@ -10,6 +10,7 @@ import nfactory.crazyenchant.enchantment.*;
 public class ModEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENT = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, CrazyEnchant.MODID);
 
+    public static final RegistryObject<Enchantment> EXPONENTIAL = ENCHANTMENT.register("exponential", ExponentialEnchantment::new);
     public static final RegistryObject<Enchantment> FISHHATER = ENCHANTMENT.register("fish_hater", FishHaterEnchantment::new);
     public static final RegistryObject<Enchantment> MULTIHITS = ENCHANTMENT.register("multihits", MultihitsEnchantment::new);
     public static final RegistryObject<Enchantment> RANDOMEFFECT = ENCHANTMENT.register("random_effect", RandomEffectEnchantment::new);

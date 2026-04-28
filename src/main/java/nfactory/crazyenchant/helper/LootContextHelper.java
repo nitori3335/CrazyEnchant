@@ -1,4 +1,4 @@
-package nfactory.crazyenchant.util;
+package nfactory.crazyenchant.helper;
 
 public class LootContextHelper {
     public static final ThreadLocal<Integer> CURRENT_ENCHANT_LEVEL = ThreadLocal.withInitial(() -> 0);

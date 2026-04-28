@@ -3,7 +3,7 @@ package nfactory.crazyenchant.mixin.fishing;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import nfactory.crazyenchant.CrazyEnchant;
 import nfactory.crazyenchant.access.IHateContainer;
-import nfactory.crazyenchant.util.LootContextHelper;
+import nfactory.crazyenchant.helper.LootContextHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;

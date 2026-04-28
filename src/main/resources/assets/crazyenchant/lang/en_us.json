@@ -1,4 +1,5 @@
 {
+  "enchantment.crazyenchant.exponential"   : "Exponential",
   "enchantment.crazyenchant.fish_hater"    : "FishHater",
   "enchantment.crazyenchant.multihits"     : "MultiHits",
   "enchantment.crazyenchant.random_effect" : "RandomEffect",
@@ -9,15 +10,21 @@
 
 
 
-  "tooltip.crazyenchant.fish_hater": "- Makes fish harder to catch and junk more common.",
-  "tooltip.crazyenchant.multihits": "- Attacks can strike multiple times.",
-  "tooltip.crazyenchant.random_effect": "- Grants a random potion effect on hit.",
-  "tooltip.crazyenchant.silkfortune": "- Combines Silk Touch and Fortune.",
-  "tooltip.crazyenchant.steal_effect": "- Steals potion effects from enemies.",
-  "tooltip.crazyenchant.swift_flight": "- Increases creative flight speed.",
-  "tooltip.crazyenchant.witch_hunter": "- Witch drop enchanted books when killed.",
+  "enchantment.crazyenchant.exponential.desc"  : "Exponentially increases damage.",
+  "enchantment.crazyenchant.fish_hater.desc"   : "Makes fish harder to catch and junk more common.",
+  "enchantment.crazyenchant.multihits.desc"    : "Attacks can strike multiple times.",
+  "enchantment.crazyenchant.random_effect.desc": "Grants a random potion effect on hit.",
+  "enchantment.crazyenchant.silkfortune.desc"  : "Combines Silk Touch and Fortune.",
+  "enchantment.crazyenchant.steal_effect.desc" : "Steals potion effects from enemies.",
+  "enchantment.crazyenchant.swift_flight.desc" : "Increases creative flight speed.",
+  "enchantment.crazyenchant.witch_hunter.desc" : "Witch drop enchanted books when killed.",
 
 
+
+  "jei.crazyenchant.exponential.line1": "Applies exponential scaling to damage.",
+  "jei.crazyenchant.exponential.line2": "Triggers on melee hit.",
+  "jei.crazyenchant.exponential.line3": "Final damage is raised to a power.",
+  "jei.crazyenchant.exponential.line4": "Becomes extremely powerful at higher levels.",
 
   "jei.crazyenchant.fish_hater.line1": "Reduces the chance of catching fish.",
   "jei.crazyenchant.fish_hater.line2": "Applies while fishing with a rod.",
